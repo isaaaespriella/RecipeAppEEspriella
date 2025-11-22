@@ -344,8 +344,15 @@ fun HomeScreen(navController: NavController){
                         sheetState.hide()
                     }
                     viewModel.saveRecipeInDb()
+                },
+                onClose = {
+                    scope.launch {
+                        viewModel.hideModal()
+                        sheetState.hide()
+                    }
                 }
             )
+
         }
     }
 

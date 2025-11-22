@@ -36,7 +36,8 @@ import com.pjasoft.recipeapp.domain.models.Recipe
 import com.pjasoft.recipeapp.ui.RecipeTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
-fun GeneratedRecipe(recipe: RecipeDTO?, onSave: () -> Unit){
+fun GeneratedRecipe(recipe: RecipeDTO?, onSave: () -> Unit,
+                    onClose: () -> Unit){
     val colors = MaterialTheme.colorScheme
     Column(
         modifier = Modifier
@@ -117,11 +118,15 @@ fun GeneratedRecipe(recipe: RecipeDTO?, onSave: () -> Unit){
                 )
             }
         }
-        Button(
-            onClick = onSave
-        ){
+        Button(onClick = onSave){
             Text("Guardar")
         }
+        Button(
+            onClick = onClose
+        ) {
+            Text("Cerrar")
+        }
+
     }
 }
 @Preview
@@ -164,7 +169,8 @@ fun GeneratedRecipeView(){
     RecipeTheme {
         GeneratedRecipe(
             recipe = recipe,
-            {}
+            onSave = { },
+            onClose = { }
         )
     }
 }
