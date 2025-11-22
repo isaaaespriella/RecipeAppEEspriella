@@ -37,6 +37,30 @@ class RecipeViewModel : ViewModel() {
         showSheet = false
     }
 
+    fun IdeasRapidas(tag: String) {
+        viewModelScope.launch {
+            try {
+                isLoading = true
+
+                val result = recipeService.generateRecipe(
+                    Prompt(
+                        ingredients = tag     // send tag as prompt
+                    )
+                )
+
+                generatedRecipe = result
+                showSheet = true
+
+            } catch (e: Exception) {
+                println(e.toString())
+            } finally {
+                isLoading = false
+            }
+        }
+    }
+
+
+
     fun generateRecipe(prompt: Prompt){
         viewModelScope.launch {
             try {
