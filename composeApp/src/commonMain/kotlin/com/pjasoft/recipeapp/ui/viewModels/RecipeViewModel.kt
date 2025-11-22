@@ -59,6 +59,27 @@ class RecipeViewModel : ViewModel() {
         }
     }
 
+    fun recipeAletoria() {
+        viewModelScope.launch {
+            try {
+                isLoading = true
+
+                val result = recipeService.generateRecipe(
+                    Prompt(ingredients = "")
+                )
+
+                generatedRecipe = result
+                showSheet = true
+
+            } catch (e: Exception) {
+                println(e.toString())
+            } finally {
+                isLoading = false
+            }
+        }
+    }
+
+
 
 
     fun generateRecipe(prompt: Prompt){

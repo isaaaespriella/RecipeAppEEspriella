@@ -250,7 +250,7 @@ fun HomeScreen(navController: NavController){
                     .background(colors.primary.copy(alpha = 0.1f))
                     .padding(20.dp)
                     .clickable{
-                        //generar receta aleatoria
+                        viewModel.recipeAletoria()
                     },
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
