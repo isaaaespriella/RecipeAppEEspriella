@@ -231,9 +231,11 @@ fun HomeScreen(navController: NavController){
                             .clip(CircleShape)
                             .background(colors.primary.copy(alpha = 0.1f))
                             .padding(horizontal = 20.dp, vertical = 10.dp)
-                            .clickable{
+                            .clickable {
+                                viewModel.IdeasRapidas(tag)
 
-                            },
+
+                },
                         color = colors.primary,
                         fontWeight = FontWeight.Bold
                     )
