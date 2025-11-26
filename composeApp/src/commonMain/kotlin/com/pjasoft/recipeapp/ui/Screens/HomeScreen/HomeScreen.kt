@@ -338,6 +338,7 @@ fun HomeScreen(navController: NavController){
             )
             GeneratedRecipe(
                 recipe = viewModel.generatedRecipe,
+                isSaved = viewModel.isRecipeAlreadySaved(viewModel.generatedRecipe),
                 onSave = {
                     scope.launch {
                         viewModel.hideModal()
@@ -352,6 +353,7 @@ fun HomeScreen(navController: NavController){
                     }
                 }
             )
+
 
         }
     }

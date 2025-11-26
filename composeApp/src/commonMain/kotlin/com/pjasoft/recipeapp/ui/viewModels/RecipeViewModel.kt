@@ -65,7 +65,7 @@ class RecipeViewModel : ViewModel() {
                 isLoading = true
 
                 val result = recipeService.generateRecipe(
-                    Prompt(ingredients = "")
+                    Prompt(ingredients = "sal")
                 )
 
                 generatedRecipe = result
@@ -78,6 +78,17 @@ class RecipeViewModel : ViewModel() {
             }
         }
     }
+
+    fun isRecipeAlreadySaved(recipe: RecipeDTO?): Boolean {
+        if (recipe == null) return false
+
+        return recipes.any {
+            it.title == recipe.title &&
+                    it.ingredients == recipe.ingredients &&
+                    it.instructions == recipe.instructions
+        }
+    }
+
 
 
 

@@ -39,8 +39,10 @@ fun RecipeTheme(
     content : @Composable () -> Unit
 ){
     val colors = if(isSystemInDarkTheme()) DarkColors else LightColors
-    MaterialTheme (
+    MaterialTheme(
         colorScheme = colors,
+        typography = AppTypography,
         content = content
-        )
+    )
+
 }
